@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font: 250%/1.6 Baskerville, Palatino, serif;
+        }
+
+        p {
+            padding: .8em 1em;
+            background: hsl(210, 13%, 60%);
+            color: hsl(210, 13%, 30%);
+            text-shadow: 0 1px 1px hsla(0,0%,100%,.8);
+        }
+
+        p + p {
+            background: hsl(210, 13%, 30%);
+            color: hsl(210, 13%, 60%);
+            text-shadow: 0 -1px 1px black;
+        }
+        h1 {
+            margin: 0;
+            color: white;
+        }
+
+        h1:first-child { text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black; }
+
+        h1 text { fill: currentColor }
+        h1 use {
+            stroke: black;
+            stroke-width: 6;
+            stroke-linejoin: round;
+        }
+        .box {
+            background: #eee;
+            font: bold 200%/1 Rockwell, serif;
+        }
+        .box1{
+            background: #203;
+            font: bold 500%/1 Rockwell, serif;
+        }
+        .box2{
+            background: #203;
+            font: bold 500%/1 Rockwell, serif;
+        }
+        .box1 a{
+            color: #ffc;
+            text-decoration: none;
+            transition: 1s;
+        }
+        .box1 a:hover { text-shadow: 0 0 .1em, 0 0 .3em; }
+        .box2 a{
+            background:#203;
+            color: white;
+            transition: 1s;
+        }
+        .box2 a:hover{
+            -webkit-filter:blur(.1em);
+        }
+        .box3{
+            background: #58a;
+            color: white;
+            text-shadow: 0 1px hsl(0,0%,85%),
+            0 2px hsl(0,0%,80%),
+            0 3px hsl(0,0%,75%),
+            0 4px hsl(0,0%,70%),
+            0 5px hsl(0,0%,65%),
+            0 5px 10px black;
+            font: bold 500%/1 Rockwell, serif;
+        }
+    </style>
+    <title>现实中的文字效果</title>
+</head>
+<body>
+<!--凸版印刷效果-->
+<p>“The only way to get rid of a temp­ta­tion is to yield to it.”</p>
+<p>“The only way to get rid of a temp­ta­tion is to yield to it.”</p>
+<!--空心字效果-->
+<div class="box">
+    <h1>CSS</h1>
+    <h1><svg overflow="visible" width="2em" height="1.2em"><use xlink:href="#css" /><text id="css" y="1em">CSS</text></svg></h1>
+</div>
+<!--发光字-->
+<div class="box1">
+    <a href="http://csssecrets.io">Glow</a>
+</div>
+<div class="box2">
+    <a href="http://csssecrets.io">Glow</a>
+</div>
+<!--文字 凸 起效果-->
+<div class="box3">
+    CSS3d
+</div>
+
+</body>
+</html>

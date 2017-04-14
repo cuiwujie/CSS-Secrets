@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html,body {
+            width: 100%;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            transition: 1s filter, 1s -webkit-filter;
+            -webkit-filter: sepia() saturate(4) hue-rotate(295deg);
+            filter: sepia() saturate(4) hue-rotate(295deg);
+        }
+        img:hover,
+        img:focus {
+            -webkit-filter: none;
+        }
+        .tinted-image {
+            width: 500px;
+            height: 300px;
+            background-size: cover;
+            background-color: hsl(335, 100%, 50%);
+            background-blend-mode: luminosity;
+            transition: .5s background-color;
+        }
+        .tinted-image:hover {
+            background-color: transparent;
+        }
+    </style>
+    <title>染色效果</title>
+</head>
+<body>
+<img src="http://csssecrets.io/images/tiger.jpg"  width="500"/>
+<div style="background-image:url(http://csssecrets.io/images/tiger.jpg)" class="tinted-image"></div>
+</body>
+</html>

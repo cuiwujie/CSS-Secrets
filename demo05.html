@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            margin:50px;
+            float: left;
+        }
+        .box{
+            width:100px;
+            height:100px;
+
+            border-radius: 50%;
+            background:yellowgreen;
+            background-image:  linear-gradient(to right, transparent 50%, #655 0);
+        }
+        .box::before{
+            content:'';
+            display:block;
+            margin-left:50%;
+            height:100%;
+            border-radius: 0 100% 100% 0 / 50%;
+            background-color:inherit;
+            transform-origin: left;
+            animation: spin 3s linear infinite,
+                        bg   6s step-end infinite;
+        }
+        @keyframes spin {
+            to{
+                transform: rotate( .5turn);
+            }
+        }
+        @keyframes bg {
+            50%{background:#655;}
+        }
+        .pie {
+
+            position: relative;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            border-radius: 50%;
+            background: yellowgreen;
+            background-image:  linear-gradient(to right, transparent 50%, #655 0);
+            color: transparent;
+            text-align: center;
+        }
+        @keyframes spinpie {
+            to {
+                transform: rotate(.5turn);
+            }
+        }
+        @keyframes bgpie {
+            50% {
+                background: #655;
+            }
+        }
+        .pie::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            border-radius: 0 100% 100% 0 / 50%;
+            background-color: inherit;
+            transform-origin: left;
+            animation: spinpie 50s linear infinite,
+            bgpie 100s step-end infinite;
+            animation-play-state: paused;
+            animation-delay: inherit;
+        }
+        svg{
+            width:100px;
+            height:100px;
+            transform: rotate(-90deg);
+            background:yellowgreen;
+            border-radius: 50%;
+        }
+        circle{
+            fill:yellowgreen;
+            stroke:#655;
+            stroke-width:32;
+            stroke-dasharray: 38 100; /* for 38% */
+        }
+    </style>
+    <style>
+        .piesvg svg {
+            width: 100px;
+            height: 100px;
+            transform: rotate(-90deg);
+            background: yellowgreen;
+            border-radius: 50%;
+        }
+        .piesvg circle {
+            fill: yellowgreen;
+            stroke: #655;
+            stroke-width: 32;
+        }
+    </style>
+    <title>饼图</title>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="pie" style="animation-delay: -20s"></div>
+    <div class="pie" style="animation-delay: -60s"></div>
+    <div>
+        <svg viewbox="0 0 32 32">
+            <circle r="16" cx="16" cy="16"></circle>
+        </svg>
+    </div>
+    <div id="piesvg">55%</div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+    $('#piesvg').each(function(piesvg) {
+        var p = parseFloat(piesvg.textContent);
+        var NS = "http://www.w3.org/2000/svg";
+        var svg = document.createElementNS(NS, "svg");
+        var circle = document.createElementNS(NS, "circle");
+        var title = document.createElementNS(NS, "title");
+        circle.setAttribute("r", 16);
+        circle.setAttribute("cx", 16);
+        circle.setAttribute("cy", 16);
+        circle.setAttribute("stroke-dasharray", p + " 100");
+        svg.setAttribute("viewBox", "0 0 32 32");
+        title.textContent = piesvg.textContent; piesvg.textContent = '';
+        svg.appendChild(title);
+        svg.appendChild(circle);
+        this.appendChild(svg);
+    });
+
+</script>
+</html>

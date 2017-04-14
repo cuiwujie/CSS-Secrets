@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+        .box{
+            width:100px;
+            height:100px;
+            margin:50px;
+            background:yellowgreen;
+            float: left;
+        }
+        .box1{
+            width:100px;
+            height:100px;
+            margin:50px;
+            background:greenyellow;
+            box-shadow: 2px 3px 4px rgba(0,0,0,.5);
+        }
+        .box2{
+            box-shadow: 0px 5px 4px -4px  rgba(0,0,0,.5);
+        }
+        .box3{
+            box-shadow: 3px 3px 6px -3px  rgba(0,0,0,.5);
+        }
+        .box4{
+            box-shadow: 5px 0px 5px -5px  rgba(0,0,0,.5),
+            -5px 0px 5px -5px  rgba(0,0,0,.5);
+        }
+        .box5{
+            box-shadow: 5px 0px 5px -5px  rgba(0,0,0,.5);
+
+        }
+        .box6{
+            box-shadow:
+            -5px 0px 5px -5px  rgba(0,0,0,.5);
+        }
+    </style>
+    <title>单侧投影</title>
+</head>
+<body>
+    <!--三个长度值和一个颜色值 一般投影参数设置-->
+    <div class=" box1"></div>
+    <!--向下投影-->
+    <div class="box box2"></div>
+    <!--邻边 右侧 底部 投影-->
+    <div class="box box3"></div>
+    <!--双侧投影-->
+    <div class="box box4"></div>
+    <!--右侧投影-->
+    <div class="box box5"></div>
+
+    <!--左侧投影-->
+    <div class="box box6"></div>
+
+
+</body>
+</html>
